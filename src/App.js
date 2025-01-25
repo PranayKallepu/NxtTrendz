@@ -19,13 +19,39 @@ function App() {
     const updatedCartList = cartList.filter((item) => item.id !== productId);
     setCartList(updatedCartList);
   };
+  const decreaseQuantity = (productId) => {
+    setCartList((prevCartList) =>
+      prevCartList.map((eachItem) =>
+        eachItem.id === productId
+          ? { ...eachItem, quantity: eachItem.quantity - 1 }
+          : eachItem
+      )
+    );
+  };
+  const increaseQuantity = (productId) => {
+    setCartList((prevCartList) =>
+      prevCartList.map((eachItem) =>
+        eachItem.id === productId
+          ? { ...eachItem, quantity: eachItem.quantity + 1 }
+          : eachItem
+      )
+    );
+  };
+
+  const clearCart = () => {
+    setCartList([]);
+  };
+
   return (
     <BrowserRouter>
       <CartContext.Provider
         value={{
           cartList,
-          addCartItem: addCartItem,
-          deleteCartItem: deleteCartItem,
+          addCartItem,
+          deleteCartItem,
+          decreaseQuantity,
+          increaseQuantity,
+          clearCart,
         }}
       >
         <Routes>

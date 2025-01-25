@@ -6,17 +6,23 @@ import EmptyCartView from "../EmptyCartView";
 import {
   CartContainer,
   CartContentContainer,
+  CartHeaderContainer,
   Heading,
+  TotalAmountCard,
   AmountSpan,
 } from "./styledComponent";
 
 const Cart = () => {
-  const { cartList } = useContext(CartContext);
+  const { cartList, clearCart } = useContext(CartContext);
   const isEmptyCart = cartList.length === 0;
   const totalAmount = cartList.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+  const onClickClearItems = () => {
+    clearCart();
+  };
 
   return (
     <>
@@ -26,12 +32,22 @@ const Cart = () => {
           <EmptyCartView />
         ) : (
           <CartContentContainer>
-            <Heading>My Cart</Heading>
+            <CartHeaderContainer>
+              <Heading>My Cart</Heading>
+              <button onClick={onClickClearItems} type="button">
+                Remove all
+              </button>
+            </CartHeaderContainer>
             <CartListView />
-            <h3>
-              Total Amount:
-              <AmountSpan>{totalAmount}</AmountSpan>
-            </h3>
+            <TotalAmountCard>
+              <h4>
+                Order Total:<AmountSpan> Rs {totalAmount}/-</AmountSpan>
+              </h4>
+              <p>
+                <AmountSpan>{cartList.length}</AmountSpan> Items in Cart
+              </p>
+              <button>Order Now</button>
+            </TotalAmountCard>
           </CartContentContainer>
         )}
       </CartContainer>

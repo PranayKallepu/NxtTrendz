@@ -23,11 +23,21 @@ import {
 const CartItem = (props) => {
   const { cartItemDetails } = props;
   const { title, brand, quantity, price, imageUrl, id } = cartItemDetails;
-  const { deleteCartItem } = useContext(CartContext);
+  const { deleteCartItem, increaseQuantity, decreaseQuantity } = useContext(CartContext);
   const onClickDeleteButton = () => {
     deleteCartItem(id);
     console.log(`product Deleted ${id}`);
   };
+  const onClickDecreaseQuantity =()=>{
+    if(quantity > 1){
+      decreaseQuantity(id)
+    }
+  }
+  const onClickIncreaseQuantity =()=>{
+    if(quantity < 10){
+      increaseQuantity(id)
+    }
+  }
 
   return (
     <CartItemContainer>
@@ -38,11 +48,11 @@ const CartItem = (props) => {
           <ProductBrand>by {brand}</ProductBrand>
         </ProductTitleBrandContainer>
         <QuantityContainer>
-          <QuantityControllerButton type="button">
+          <QuantityControllerButton type="button" onClick={onClickDecreaseQuantity}>
             <BsDashSquare color="#52606D" size={12} />
           </QuantityControllerButton>
           <Quantity>{quantity}</Quantity>
-          <QuantityControllerButton type="button">
+          <QuantityControllerButton type="button" onClick={onClickIncreaseQuantity}>
             <BsPlusSquare color="#52606D" size={12} />
           </QuantityControllerButton>
         </QuantityContainer>

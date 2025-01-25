@@ -47,9 +47,7 @@ const ProductItemDetails = () => {
   const [similarProductsData, setSimilarProductsData] = useState([]);
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial);
   const [quantity, setQuantity] = useState(1);
-  const [isCartAdded, setIsCartAdded] = useState(false);
   const { addCartItem } = useContext(CartContext);
-
   const { id } = useParams();
 
   const onDecrementQuantity = () => {
@@ -142,15 +140,9 @@ const ProductItemDetails = () => {
       totalReviews,
     } = productData;
 
-    const onClickAddToCart = (e) => {
-      e.preventDefault();
+    const onClickAddToCart = () => {
       const id = uuidv4();
       addCartItem({ ...productData, quantity, id });
-      setIsCartAdded(true);
-      //Hide the added cart confirmation for 2 sec
-      setTimeout(() => {
-        setIsCartAdded(false);
-      }, 2000);
     };
 
     return (
@@ -192,15 +184,9 @@ const ProductItemDetails = () => {
                 <BsPlusSquare className="quantity-controller-icon" />
               </QuantityControllerButton>
             </QuantityContainer>
-            {isCartAdded ? (
-              <AddToCartButton $isAdded={isCartAdded} type="button">
-                Added
-              </AddToCartButton>
-            ) : (
-              <AddToCartButton type="button" onClick={onClickAddToCart}>
+            <AddToCartButton type="button" onClick={onClickAddToCart}>
                 ADD TO CART
               </AddToCartButton>
-            )}
           </ProductInfo>
         </DetailsWrapper>
         <Heading>Similar Products</Heading>

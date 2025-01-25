@@ -154,7 +154,7 @@ export const AddToCartButton = styled.button`
   color: #ffffff;
   font-size: 12px;
   font-weight: 500;
-  background-color: ${(props) => (props.$isAdded ? "green" : "#3b82f6")};
+  background-color: ${(props) => (props.$isCartAdded ? "green" : "#3b82f6")};
   border: none;
   border-radius: 4px;
   padding: 12px 20px;

@@ -77,7 +77,7 @@ const Login = () => {
             type="text"
             id="username"
             name="username"
-            placeholder="Username"
+            placeholder="rahul"
             value={loginDetails.username}
             onChange={onChangeInput}
             autoComplete="off"
@@ -87,7 +87,7 @@ const Login = () => {
             type="password"
             id="password"
             name="password"
-            placeholder="Password"
+            placeholder="rahul@2021"
             value={loginDetails.password}
             onChange={onChangeInput}
             autoComplete="off"

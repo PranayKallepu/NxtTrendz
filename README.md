@@ -6,6 +6,7 @@
 - react-icons
 - js-cookie
 - uuid
+- reactjs-popup
 
 # Features
 

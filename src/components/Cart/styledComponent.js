@@ -51,25 +51,5 @@ export const Heading = styled.h1`
   }
 `;
 
-export const TotalAmountCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  color: rgb(97, 95, 95);
-  button {
-    background-color: #3b82f6;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 500;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-`;
-export const AmountSpan = styled.span`
-  color: #0967d2;
-  font-size: 22px;
-  font-weight: bold;
-`;
+
+

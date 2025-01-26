@@ -12,6 +12,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
+    "reactjs-popup": "^2.0.6",
     "styled-components": "^6.1.13",
     "uuid": "^11.0.5",
     "web-vitals": "^2.1.4"
@@ -41,7 +42,7 @@
     ]
   },
   "devDependencies": {
-    "ajv": "^7.2.4",
-    "@testing-library/react": "^13.4.0"
+    "@testing-library/react": "^13.4.0",
+    "ajv": "^7.2.4"
   }
 }
